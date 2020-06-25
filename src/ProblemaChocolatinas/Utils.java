@@ -9,6 +9,7 @@ package ProblemaChocolatinas;
  *
  * @author German le yo
  */
-public class DistribucionAleatoria {
+public class Utils {
+    
     
 }
