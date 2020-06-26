@@ -42,8 +42,6 @@ public class PoissonTruncada implements DistribucionAleatoria{
         }
         
         this.probabilidadIntervalo = probabilidadIntervalo;
-        System.out.println(probabilidadIntervalo);
-
     }
     
     
