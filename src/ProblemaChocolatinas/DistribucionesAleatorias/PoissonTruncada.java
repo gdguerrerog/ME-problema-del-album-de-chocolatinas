@@ -6,9 +6,7 @@
 package ProblemaChocolatinas.DistribucionesAleatorias;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.math.MathContext;
-import java.math.RoundingMode;
 
 /**
  *
@@ -20,7 +18,8 @@ public class PoissonTruncada implements DistribucionAleatoria{
     private final BigDecimal probabilidadIntervalo;
 
     private static BigDecimal E = null;
-
+    private final BigDecimal EPowMinusλ; // e^(-λ)
+    
     /**
      * Constructor de una variable aleatorio Poisson Truncada.
      * @param λ Parámetro lambda de la distribución Poisson
@@ -34,7 +33,8 @@ public class PoissonTruncada implements DistribucionAleatoria{
         this.λ = λ;
         this.min = min;
         this.max = max;
-        
+
+        this.EPowMinusλ = E.pow(-1 * λ, MathContext.DECIMAL128);
         
         BigDecimal probabilidadIntervalo = BigDecimal.ZERO;
         for (int i = min; i <= max; i++) {
@@ -53,7 +53,7 @@ public class PoissonTruncada implements DistribucionAleatoria{
      */
     public final BigDecimal densidadNoTruncada(int x){
         BigDecimal ans = BigDecimal.valueOf(λ).pow(x);
-        ans = ans.multiply(E.pow(-1* λ, MathContext.DECIMAL128));
+        ans = ans.multiply(EPowMinusλ);
         for(int i = 2; i <= x; i++) ans = ans.divide(BigDecimal.valueOf(i), MathContext.DECIMAL128);
         return ans;
     }
@@ -81,7 +81,6 @@ public class PoissonTruncada implements DistribucionAleatoria{
         
         for(int i = min; i <= max; i++){
             acumulative = acumulative.add(densidad(i));
-            System.out.println(densidad(i));
             // Found value
             if(acumulative.compareTo(uVal) >= 0) return i;
         }

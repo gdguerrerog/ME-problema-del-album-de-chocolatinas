@@ -5,6 +5,10 @@
  */
 package ProblemaChocolatinas;
 
+import ProblemaChocolatinas.DistribucionesAleatorias.AbstractComandInput.*;
+import ProblemaChocolatinas.DistribucionesAleatorias.*;
+import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  *
@@ -16,6 +20,15 @@ public class MEProblemaDelAlbumDeChocolatinas {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        
+        DistribucionAleatoriaInput input = new TableCommandInput(scan);
+        Tienda tienda = new Tienda(input.getDistribucion());
+        
+        for (int i = 0; i < 10; i++) {
+            System.out.println(Arrays.toString(tienda.getSobre()));
+        }
+        
         
     }
     

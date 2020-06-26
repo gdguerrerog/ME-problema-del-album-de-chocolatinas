@@ -33,10 +33,6 @@ public class Tabla implements DistribucionAleatoria {
         
         this.probs = new double[probs.length];
         for(int i = 0; i < probs.length; i++) this.probs[i] = probs[i]/suma;
-        
-        System.out.println(suma);
-        System.out.println(Arrays.toString(this.probs));
-        
     }
     
     /**
@@ -46,7 +42,6 @@ public class Tabla implements DistribucionAleatoria {
     @Override
     public int getRandomInt() {
         double u = random.nextDouble();
-        System.out.println(u);
         double distribution = 0;
         for (int i = 0; i < probs.length; i++) {
             distribution += probs[i];

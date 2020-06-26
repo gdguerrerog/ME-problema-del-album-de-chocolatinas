@@ -41,7 +41,7 @@ public class Binomial implements DistribucionAleatoria{
      * para el valor x
      */
     public BigDecimal densidad(int x){
-        if(x >= n) return BigDecimal.ZERO;
+        if(x > n) return BigDecimal.ZERO;
         int initial;
         // Para hacer la menor cantidad demultipliacaiónes posibles
         if(x > n - x) initial = x;
