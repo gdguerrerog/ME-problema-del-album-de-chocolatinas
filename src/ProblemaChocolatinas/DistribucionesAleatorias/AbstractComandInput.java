@@ -120,7 +120,6 @@ public abstract class AbstractComandInput implements DistribucionAleatoriaInput{
                 System.out.printf("Ingrese el valor del elemento %d: ", i + 1);
                 probs[i] = commandLine.nextDouble();
             }
-            
             return new Tabla(probs);
         }
 

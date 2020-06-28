@@ -30,7 +30,6 @@ public class Tabla implements DistribucionAleatoria {
         
         double suma = 0;
         for(double prob: probs) suma += prob;
-        
         this.probs = new double[probs.length];
         for(int i = 0; i < probs.length; i++) this.probs[i] = probs[i]/suma;
     }

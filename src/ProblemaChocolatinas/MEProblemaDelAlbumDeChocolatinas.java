@@ -19,17 +19,12 @@ public class MEProblemaDelAlbumDeChocolatinas {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        
-        DistribucionAleatoriaInput input = new TableCommandInput(scan);
-        Tienda tienda = new Tienda(input.getDistribucion());
-        
-        for (int i = 0; i < 10; i++) {
-            System.out.println(Arrays.toString(tienda.getSobre()));
-        }
-        
-        
+    //<>
+    public static void main(String[] args) {        
+        Sistema sistema = new Sistema();
+        int communitySize = 5;
+        Sistema agentesSistema = sistema.Community_Generator(communitySize, 0.3);
+        agentesSistema.runSystem();
     }
     
 }
