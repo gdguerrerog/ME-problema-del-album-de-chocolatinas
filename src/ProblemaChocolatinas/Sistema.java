@@ -129,7 +129,7 @@ public int[][] agentsAdyacenceMatrix;
         }
     }
     
-    public void runSystem(){
+    public void runSystem(Tienda tienda){
         int totalLaminasAgentes = 0;       
         for(int i = 0; i < communitySize; i++){
             for(int j = 0; j < communitySize; j++){
@@ -138,10 +138,7 @@ public int[][] agentsAdyacenceMatrix;
             System.out.print("\n");
         }     
              
-        Scanner scan = new Scanner(System.in);
-        
-        DistribucionAleatoriaInput input = new AbstractComandInput.TableCommandInput(scan);
-        Tienda tienda = new Tienda(input.getDistribucion());
+
         ArrayList<ArrayList<Acciones> > accionesSistema = new ArrayList<ArrayList<Acciones> >();
         int[][] sobresDisponibles = new int[10][5];
         int pasos = 0;

@@ -13,7 +13,7 @@ import java.util.Arrays;
  * @author German le yo
  */
 public class Agente {
-    public static final int TOTAL_LAMINAS = 5;
+    public static int TOTAL_LAMINAS;
     private int[] laminas = new int[TOTAL_LAMINAS];
     private int[] laminas_sobrantes = new int[TOTAL_LAMINAS];
     private ArrayList<Integer> amistad = new ArrayList<Integer>();
@@ -135,5 +135,8 @@ public class Agente {
 
     public int[] getLaminas_sobrantes() {
         return laminas_sobrantes;
+    }
+    public static void setTOTAL_LAMINAS(int TOTAL_LAMINAS) {
+        Agente.TOTAL_LAMINAS = TOTAL_LAMINAS;
     }
 }

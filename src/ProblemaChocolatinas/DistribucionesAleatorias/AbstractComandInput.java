@@ -5,6 +5,7 @@
  */
 package ProblemaChocolatinas.DistribucionesAleatorias;
 
+import ProblemaChocolatinas.Agente;
 import ProblemaChocolatinas.DistribucionesAleatorias.*;
 import java.util.Scanner;
 
@@ -114,6 +115,7 @@ public abstract class AbstractComandInput implements DistribucionAleatoriaInput{
             
             System.out.print("Ingrese el tamaño de la tabla: ");
             int size = commandLine.nextInt();
+            Agente.setTOTAL_LAMINAS(size);
             double[] probs = new double[size];
             
             for (int i = 0; i < size; i++) {

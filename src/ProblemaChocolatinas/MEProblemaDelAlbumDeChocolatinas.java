@@ -20,11 +20,16 @@ public class MEProblemaDelAlbumDeChocolatinas {
      * @param args the command line arguments
      */
     //<>
-    public static void main(String[] args) {        
+    public static void main(String[] args) {  
+        Scanner scan = new Scanner(System.in);
+        DistribucionAleatoriaInput input = new AbstractComandInput.TableCommandInput(scan);
+        Tienda tienda = new Tienda(input.getDistribucion());
         Sistema sistema = new Sistema();
-        int communitySize = 5;
+        System.out.print("Ingrese el tamaño de la comunidad: ");
+        int communitySize = scan.nextInt();
+        
         Sistema agentesSistema = sistema.Community_Generator(communitySize, 0.3);
-        agentesSistema.runSystem();
+        agentesSistema.runSystem(tienda);
     }
     
 }
