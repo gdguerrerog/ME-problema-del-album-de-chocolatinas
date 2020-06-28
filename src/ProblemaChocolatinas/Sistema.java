@@ -144,6 +144,8 @@ public int[][] agentsAdyacenceMatrix;
                 sobresDisponibles[i] = tienda.getSobre();
                 // System.out.println(Arrays.toString(tienda.getSobre()));
             }    
+            
+            System.out.println("Laminas llenas en el paso:" + pasos);   
             for(int i = 0; i < communitySize; i++){
                 /*
                 System.out.print("El agente: \t");
@@ -153,10 +155,12 @@ public int[][] agentsAdyacenceMatrix;
                 */
                 accionesSistema.add(this.getAgentes().get(i).seleccionarAcciones(i, this));
                 
-                System.out.println("Laminas llenas");               
+                System.out.println("Laminas llenas del agente:" + i);               
                 System.out.println(Arrays.toString(this.getAgentes().get(i).getLaminas()));
+                /*
                 System.out.println("Laminas sobrantes");
                 System.out.println(Arrays.toString(this.getAgentes().get(i).getLaminas_sobrantes()));
+                */
                 // System.out.print("\n");
                 
             } 
@@ -165,8 +169,11 @@ public int[][] agentsAdyacenceMatrix;
             totalLaminasAgentes = this.totalLaminasAgentes();  
             pasos++;
         }   
+        System.out.println("Pasos que tomó para que todos los agentes llenaran el album");
         System.out.println(pasos);
+        System.out.println("Suma laminas agentes");
         System.out.println(totalLaminasAgentes);
+        System.out.println("Meta");
         System.out.println(this.meta());
     }   
 }
