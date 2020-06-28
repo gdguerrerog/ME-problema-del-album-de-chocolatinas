@@ -132,18 +132,15 @@ public int[][] agentsAdyacenceMatrix;
     public void runSystem(Tienda tienda){
         int totalLaminasAgentes = 0;       
         for(int i = 0; i < communitySize; i++){
-            for(int j = 0; j < communitySize; j++){
-                System.out.print(this.agentsAdyacenceMatrix[i][j]);
-            }
-            System.out.print("\n");
+            System.out.println(Arrays.toString(this.agentsAdyacenceMatrix[i]));
         }     
              
 
         ArrayList<ArrayList<Acciones> > accionesSistema = new ArrayList<ArrayList<Acciones> >();
-        int[][] sobresDisponibles = new int[10][5];
+        int[][] sobresDisponibles = new int[communitySize+1][5];
         int pasos = 0;
         while (totalLaminasAgentes < this.meta()){
-            for (int i = 0; i < 10; i++) {
+            for (int i = 0; i < communitySize+1; i++) {
                 sobresDisponibles[i] = tienda.getSobre();
                 // System.out.println(Arrays.toString(tienda.getSobre()));
             }    
