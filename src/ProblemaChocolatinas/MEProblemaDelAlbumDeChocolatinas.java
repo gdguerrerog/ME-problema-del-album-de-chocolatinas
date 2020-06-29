@@ -23,11 +23,11 @@ public class MEProblemaDelAlbumDeChocolatinas {
     public static void main(String[] args) {  
         Scanner scan = new Scanner(System.in);
         System.out.print("Ingrese el número de láminas: ");
-        int albumSize =  scan.nextInt();
+        int albumSize =  10;//scan.nextInt();
         System.out.print("Ingrese el tamaño de la comunidad: ");
-        int communitySize = scan.nextInt();
+        int communitySize = 10;//scan.nextInt();
         System.out.print("Ingrese la probabilidad de amistad de la cominudad: ");
-        double p =scan.nextDouble();
+        double p = 0.5;//scan.nextDouble();
         
         
         DistribucionAleatoriaInput input = null;

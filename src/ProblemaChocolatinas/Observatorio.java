@@ -114,6 +114,9 @@ public class Observatorio {
         System.out.printf("Total de pasos necesarios: %d\n", steps);
         System.out.printf("Numero de amigos por agente: %s\n", Arrays.toString(totalAmigosAgente));
         
+        int totalIntercambios = 0;
+        int totalSobresVendidos = 0;
+        
         int index = 0;
         for(State state :estadoTemporal){
             System.out.printf("En el tiempo %d se dio que:\n", index);
@@ -122,8 +125,13 @@ public class Observatorio {
             System.out.printf("\tTotal intercambios: %d\n", state.totalIntercambios);
             System.out.printf("\tSobres Vendidos: %d\n", state.sobresVendidos);
             
+            totalIntercambios += state.totalIntercambios;
+            totalSobresVendidos += state.sobresVendidos;
+            
             index++;
         }
+        
+        System.out.printf("Total intercambios: %d\nTotal sonbres vendidos: %d\n", totalIntercambios, totalSobresVendidos);
         
     }
 }
