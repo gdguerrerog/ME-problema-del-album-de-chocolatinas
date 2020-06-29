@@ -9,15 +9,8 @@ package ProblemaChocolatinas;
  *
  * @author German le yo
  */
-public class Ambiente {
+public interface AccionInterface {
     
-    public final Tienda tienda;
-    public final int totalLaminas; // Cantidad total de láminas
-    
-    public Ambiente(Tienda tienda, int totalLaminas){
-        this.tienda = tienda;
-        this.totalLaminas = totalLaminas;
-    }
-    
+    void ejecutarAccion();
     
 }

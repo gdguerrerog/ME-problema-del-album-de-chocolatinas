@@ -5,14 +5,12 @@
  */
 package ProblemaChocolatinas.DistribucionesAleatorias;
 
-import ProblemaChocolatinas.DistribucionesAleatorias.DistribucionAleatoria;
-
 /**
  *
  * @author German le yo
  */
 public interface DistribucionAleatoriaInput {
     
-    DistribucionAleatoria getDistribucion();
+    DistribucionAleatoria getDistribucion(int albumSize);
     
 }

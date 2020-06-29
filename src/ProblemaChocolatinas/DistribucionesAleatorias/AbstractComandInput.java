@@ -27,13 +27,8 @@ public abstract class AbstractComandInput implements DistribucionAleatoriaInput{
         }
 
         @Override
-        public DistribucionAleatoria getDistribucion() {
-            System.out.print("Ingrese el valor mínimo de la distribución Uniforme (inclusivo): ");
-            int min = commandLine.nextInt();
-            System.out.print("Ingrese el valor máximo de la distribución Uniforme (inclusivo): ");
-            int max = commandLine.nextInt();
-
-            return new Uniforme(min, max);
+        public DistribucionAleatoria getDistribucion(int albumSize) {
+            return new Uniforme(1, albumSize);
         }
 
     }
@@ -45,14 +40,10 @@ public abstract class AbstractComandInput implements DistribucionAleatoriaInput{
         }
 
         @Override
-        public DistribucionAleatoria getDistribucion() {
+        public DistribucionAleatoria getDistribucion(int albumSize) {
             System.out.print("Ingrese la probabilidad de éxito de la distribución Geométrica: ");
             double p = commandLine.nextDouble();
-            System.out.print("Ingrese el valor mínimo del truncamiento de la distribución Geométrica truncada (inclusivo):");
-            int min = commandLine.nextInt();
-            System.out.print("Ingrese el valor máximo del truncamiento de la distribución Geométrica truncada (inclusivo):");
-            int max = commandLine.nextInt();
-            return new GeometricaTruncada(p, min, max);
+            return new GeometricaTruncada(p, 1, albumSize);
         }
 
     }
@@ -64,13 +55,11 @@ public abstract class AbstractComandInput implements DistribucionAleatoriaInput{
         }
 
         @Override
-        public DistribucionAleatoria getDistribucion() {
-            System.out.print("Ingrese el número de ensallos de la distribución Binomial: ");
-            int n = commandLine.nextInt();
+        public DistribucionAleatoria getDistribucion(int albumSize) {
             System.out.print("Ingrese la probabilidad de éxito de la distribución Binomial: ");
             double p = commandLine.nextDouble();
 
-            return new Binomial(n, p);
+            return new Binomial(albumSize, p);
         }
 
     }
@@ -82,14 +71,10 @@ public abstract class AbstractComandInput implements DistribucionAleatoriaInput{
         }
 
         @Override
-        public DistribucionAleatoria getDistribucion() {
+        public DistribucionAleatoria getDistribucion(int albumSize) {
             System.out.print("Ingrese el parámetro λ de la distribución Poisson: ");
             int λ = commandLine.nextInt();
-            System.out.print("Ingrese el valor mínimo del truncamiento de la distribución Poisson truncada (inclusivo):");
-            int min = commandLine.nextInt();
-            System.out.print("Ingrese el valor máximo del truncamiento de la distribución Poisson truncada (inclusivo):");
-            int max = commandLine.nextInt();
-            return new PoissonTruncada(λ, min, max);
+            return new PoissonTruncada(λ, 1, albumSize);
         }
 
     }
@@ -101,7 +86,7 @@ public abstract class AbstractComandInput implements DistribucionAleatoriaInput{
         }
 
         @Override
-        public DistribucionAleatoria getDistribucion() {
+        public DistribucionAleatoria getDistribucion(int albumSize) {
             
             String explanation = new StringBuilder()
             .append("Para ingresar una distribución en forma de tabla no es necesario que ")
@@ -113,12 +98,9 @@ public abstract class AbstractComandInput implements DistribucionAleatoriaInput{
             
             System.out.println(explanation);
             
-            System.out.print("Ingrese el tamaño de la tabla: ");
-            int size = commandLine.nextInt();
-            Agente.setTOTAL_LAMINAS(size);
-            double[] probs = new double[size];
+            double[] probs = new double[albumSize];
             
-            for (int i = 0; i < size; i++) {
+            for (int i = 0; i < albumSize; i++) {
                 System.out.printf("Ingrese el valor del elemento %d: ", i + 1);
                 probs[i] = commandLine.nextDouble();
             }

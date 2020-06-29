@@ -17,9 +17,11 @@ public class Tienda {
     
     private DistribucionAleatoria random;
     
+    private Observatorio observatorio;
     
-    public Tienda(DistribucionAleatoria random){
+    public Tienda(DistribucionAleatoria random, Observatorio observatorio){
         this.random = random;
+        this.observatorio = observatorio;
     }
     
     public int[] getSobre(){
@@ -27,6 +29,8 @@ public class Tienda {
         for (int i = 0; i < TAMANO_SOBRE; i++) {
             sobre[i] = random.getRandomInt();
         }
+        
+        observatorio.addCompraSobres(1);
         
         return sobre;
     }
