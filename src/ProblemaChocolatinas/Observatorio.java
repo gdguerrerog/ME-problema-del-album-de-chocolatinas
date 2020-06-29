@@ -119,11 +119,11 @@ public class Observatorio {
         
         int index = 0;
         for(State state : estadoTemporal){
-            System.out.printf("En el tiempo %d se dio que:\n", index);
-            System.out.printf("\tTotal de láminas del sistema: %d\n", state.totalLaminasSistema);
-            System.out.printf("\tLas láminas faltantes por cada agente: %s\n", Arrays.toString(state.laminasFaltantesAgente));
-            System.out.printf("\tTotal intercambios: %d\n", state.totalIntercambios);
-            System.out.printf("\tSobres Vendidos: %d\n", state.sobresVendidos);
+//            System.out.printf("En el tiempo %d se dio que:\n", index);
+//            System.out.printf("\tTotal de láminas del sistema: %d\n", state.totalLaminasSistema);
+//            System.out.printf("\tLas láminas faltantes por cada agente: %s\n", Arrays.toString(state.laminasFaltantesAgente));
+//            System.out.printf("\tTotal intercambios: %d\n", state.totalIntercambios);
+//            System.out.printf("\tSobres Vendidos: %d\n", state.sobresVendidos);
             
             totalIntercambios += state.totalIntercambios;
             totalSobresVendidos += state.sobresVendidos;
@@ -136,11 +136,11 @@ public class Observatorio {
         
         double acertividad = ((double)sistema.getAgentes().length * ambiente.totalLaminas)/totalLaminasSistema * 100;
         
-        System.out.println("Total Láminas en el sistema: " + totalLaminasSistema);
-        System.out.println("Porcentaje asertividad: " + acertividad + "%");
         System.out.println("Total de pasos necesarios: " + steps);
-        System.out.println("Total intercambios: " + totalIntercambios);
+        System.out.println("Total Láminas en el sistema: " + totalLaminasSistema);
         System.out.println("Total Sobres vendidos:" + totalSobresVendidos);
+        System.out.println("Total intercambios: " + totalIntercambios);
+        System.out.println("Porcentaje asertividad: " + acertividad + "%");
         
     }
     
