@@ -138,9 +138,9 @@ public class Observatorio {
         
         System.out.println("Total de pasos necesarios: " + steps);
         System.out.println("Total Láminas en el sistema: " + totalLaminasSistema);
-        System.out.println("Total Sobres vendidos:" + totalSobresVendidos);
+        System.out.println("Total Sobres vendidos: " + totalSobresVendidos);
         System.out.println("Total intercambios: " + totalIntercambios);
-        System.out.println("Porcentaje asertividad: " + acertividad + "%");
+        System.out.printf("Porcentaje asertividad: %.2f%%\n", acertividad);
         
     }
     
