@@ -137,7 +137,7 @@ public class Observatorio {
         double acertividad = ((double)sistema.getAgentes().length * ambiente.totalLaminas)/totalLaminasSistema * 100;
         
         System.out.println("Total Láminas en el sistema: " + totalLaminasSistema);
-        System.out.println("Porcentaje acertividad: " + acertividad + "%");
+        System.out.println("Porcentaje asertividad: " + acertividad + "%");
         System.out.println("Total de pasos necesarios: " + steps);
         System.out.println("Total intercambios: " + totalIntercambios);
         System.out.println("Total Sobres vendidos:" + totalSobresVendidos);
