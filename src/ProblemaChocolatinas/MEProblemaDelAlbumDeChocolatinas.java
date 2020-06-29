@@ -63,8 +63,9 @@ public class MEProblemaDelAlbumDeChocolatinas {
         sistema.setAmbiente(ambiente);
         sistema.Community_Generator();
 
+        observatorio.setAmbiente(ambiente);
         observatorio.initEstadisticas();
-
+        
         sistema.runSystem(tienda);
         
         observatorio.printEstadisticas();

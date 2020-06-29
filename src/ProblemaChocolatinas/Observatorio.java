@@ -47,6 +47,7 @@ public class Observatorio {
     }
 
     private Sistema sistema;
+    private Ambiente ambiente;
     
     ArrayList<State> estadoTemporal;
 
@@ -111,14 +112,13 @@ public class Observatorio {
     }
     
     public void printEstadisticas(){
-        System.out.printf("Total de pasos necesarios: %d\n", steps);
         System.out.printf("Numero de amigos por agente: %s\n", Arrays.toString(totalAmigosAgente));
         
         int totalIntercambios = 0;
         int totalSobresVendidos = 0;
         
         int index = 0;
-        for(State state :estadoTemporal){
+        for(State state : estadoTemporal){
             System.out.printf("En el tiempo %d se dio que:\n", index);
             System.out.printf("\tTotal de láminas del sistema: %d\n", state.totalLaminasSistema);
             System.out.printf("\tLas láminas faltantes por cada agente: %s\n", Arrays.toString(state.laminasFaltantesAgente));
@@ -131,7 +131,20 @@ public class Observatorio {
             index++;
         }
         
-        System.out.printf("Total intercambios: %d\nTotal sonbres vendidos: %d\n", totalIntercambios, totalSobresVendidos);
         
+        int totalLaminasSistema = estadoTemporal.get(steps -1).totalLaminasSistema;
+        
+        double acertividad = ((double)sistema.getAgentes().length * ambiente.totalLaminas)/totalLaminasSistema * 100;
+        
+        System.out.println("Total Láminas en el sistema: " + totalLaminasSistema);
+        System.out.println("Porcentaje acertividad: " + acertividad + "%");
+        System.out.println("Total de pasos necesarios: " + steps);
+        System.out.println("Total intercambios: " + totalIntercambios);
+        System.out.println("Total Sobres vendidos:" + totalSobresVendidos);
+        
+    }
+    
+    public void setAmbiente(Ambiente ambiente){
+        this.ambiente = ambiente;
     }
 }
